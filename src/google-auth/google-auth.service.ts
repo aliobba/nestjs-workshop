@@ -16,22 +16,13 @@ export class GoogleAuthService {
     };
     console.log(req.user);
 
-    /* res.cookie('access_token', resultat.access_token, {
+    return res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
       sameSite: 'none',
       secure: true,
       httpOnly: false,
       path: '/',
-    });
-    res.redirect('https://aliobba.github.io/reactjs-workshop/'); */
-    // Domain
-    res.setHeader('Set-Cookie', `access_token=${resultat.access_token}; Domain=aliobba.github.io`);
-
-    // Secure
-    res.setHeader('Set-Cookie', `access_token=${resultat.access_token}; Secure`);
-
-    // SameSite
-    res.setHeader('Set-Cookie', `access_token=${resultat.access_token}; SameSite=Strict`);
-    return res.redirect('https://aliobba.github.io/reactjs-workshop/');
+    }).redirect('https://aliobba.github.io/reactjs-workshop/');
+    // res.redirect('https://aliobba.github.io/reactjs-workshop/');
   }
 }

@@ -22,10 +22,13 @@ let GoogleAuthService = class GoogleAuthService {
         }
         const resultat = Object.assign(Object.assign({}, req.user), { access_token: this.jwtService.sign(req.user) });
         console.log(req.user);
-        res.setHeader('Set-Cookie', `access_token=${resultat.access_token}; Domain=aliobba.github.io`);
-        res.setHeader('Set-Cookie', `access_token=${resultat.access_token}; Secure`);
-        res.setHeader('Set-Cookie', `access_token=${resultat.access_token}; SameSite=Strict`);
-        return res.redirect('https://aliobba.github.io/reactjs-workshop/');
+        return res.cookie('access_token', resultat.access_token, {
+            maxAge: 3600 * 1000,
+            sameSite: 'none',
+            secure: true,
+            httpOnly: false,
+            path: '/',
+        }).redirect('https://aliobba.github.io/reactjs-workshop/');
     }
 };
 GoogleAuthService = __decorate([
