@@ -19,7 +19,7 @@ let GoogleStrategy = class GoogleStrategy extends (0, passport_1.PassportStrateg
         super({
             clientID: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'https://aliobba.github.io/reactjs-workshop/googleAuth/auth/google/callback',
+            callbackURL: 'https://combative-moccasins-fish.cyclic.app/googleAuth/auth/google/callback',
             scope: ['email', 'profile'],
         });
         this.googleAuthService = googleAuthService;
