@@ -3,10 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class GoogleAuthService {
-  constructor(
-    private jwtService: JwtService,
-  ) {}
-
+  constructor(private jwtService: JwtService) {}
 
   googleLogin(req, res) {
     if (!req.user) {
@@ -18,13 +15,14 @@ export class GoogleAuthService {
       access_token: this.jwtService.sign(req.user),
     };
     console.log(req.user);
-    
+
     res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
-      sameSite: false,
-      secure: false,
+      sameSite: 'none',
+      secure: true,
+      httpOnly: false,
+      path: '/',
     });
     return res.redirect('https://aliobba.github.io/reactjs-workshop/');
   }
-
 }

@@ -24,8 +24,10 @@ let GoogleAuthService = class GoogleAuthService {
         console.log(req.user);
         res.cookie('access_token', resultat.access_token, {
             maxAge: 3600 * 1000,
-            sameSite: false,
-            secure: false,
+            sameSite: 'none',
+            secure: true,
+            httpOnly: false,
+            path: '/',
         });
         return res.redirect('https://aliobba.github.io/reactjs-workshop/');
     }
