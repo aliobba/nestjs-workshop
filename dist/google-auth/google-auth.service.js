@@ -24,6 +24,7 @@ let GoogleAuthService = class GoogleAuthService {
         console.log(req.user);
         res.cookie('access_token', resultat.access_token, {
             maxAge: 3600 * 1000,
+            path: '/reactjs-workshop/',
             sameSite: true,
             secure: false,
         });
