@@ -24,7 +24,7 @@ export class GoogleAuthService {
       sameSite: true,
       secure: false,
     });
-    return res.redirect('http://localhost:3000');
+    return res.redirect('https://aliobba.github.io/reactjs-workshop/');
   }
 
 }

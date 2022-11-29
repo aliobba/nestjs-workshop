@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards, Body, Post } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/google-auth/guards/jwt.guard';
 import { UsersService } from './users.service';
 
@@ -19,8 +19,8 @@ export class UsersController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/:nom/:prenom/:img')
-  async addUser(@Param('nom') nom, @Param('prenom') prenom, @Param('img') img) {
+  @Post('/:nom/:prenom')
+  async addUser(@Param('nom') nom, @Param('prenom') prenom, @Body('img') img) {
     const user = {
         nom,
         prenom,

@@ -15,6 +15,7 @@ let UsersService = class UsersService {
     }
     getUsers() {
         return new Promise((resolve) => {
+            console.info(this.users);
             resolve(this.users);
         });
     }

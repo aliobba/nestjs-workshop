@@ -7,6 +7,8 @@ export class UsersService {
 
   getUsers(): Promise<any> {
     return new Promise((resolve) => {
+      console.info(this.users);
+      
       resolve(this.users);
     });
   }

@@ -52,10 +52,10 @@ __decorate([
 ], UsersController.prototype, "getUser", null);
 __decorate([
     (0, common_1.UseGuards)(jwt_guard_1.JwtAuthGuard),
-    (0, common_1.Get)('/:nom/:prenom/:img'),
+    (0, common_1.Post)('/:nom/:prenom'),
     __param(0, (0, common_1.Param)('nom')),
     __param(1, (0, common_1.Param)('prenom')),
-    __param(2, (0, common_1.Param)('img')),
+    __param(2, (0, common_1.Body)('img')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object, Object]),
     __metadata("design:returntype", Promise)
