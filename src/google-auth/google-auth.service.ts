@@ -22,7 +22,7 @@ export class GoogleAuthService {
       secure: true,
       httpOnly: false,
       path: '/',
-    }).redirect('https://aliobba.github.io/reactjs-workshop/');
+    });
     // res.redirect('https://aliobba.github.io/reactjs-workshop/');
   }
 }
