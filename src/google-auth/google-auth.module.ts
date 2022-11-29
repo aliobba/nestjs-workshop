@@ -17,6 +17,10 @@ import { ConfigModule } from '@nestjs/config';
     }),
   ],
   controllers: [GoogleAuthController],
-  providers: [GoogleAuthService, GoogleStrategy, JwtStrategy],
+  providers: [
+    GoogleAuthService,
+    GoogleStrategy,
+    JwtStrategy,
+  ],
 })
 export class GoogleAuthModule {}

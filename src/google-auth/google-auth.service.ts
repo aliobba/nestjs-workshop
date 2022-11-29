@@ -3,30 +3,28 @@ import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class GoogleAuthService {
-  constructor(private jwtService: JwtService) {}
+  constructor(
+    private jwtService: JwtService,
+  ) {}
 
-  generateJwt(payload) {
-    return this.jwtService.sign(payload);
-  }
 
   googleLogin(req, res) {
     if (!req.user) {
       return 'No user from google';
     }
 
-    return res.redirect(
-      'http://localhost:3000/' +
-        JSON.stringify({
-          ...req.user,
-          access_token: this.jwtService.sign({
-            user: req.user.email,
-          }),
-        }),
-    ); /* {
+    const resultat = {
       ...req.user,
-      access_token: this.jwtService.sign({
-        user: req.user.email,
-      }),
-    }; */
+      access_token: this.jwtService.sign(req.user),
+    };
+    console.log(req.user);
+    
+    res.cookie('access_token', resultat.access_token, {
+      maxAge: 3600 * 1000,
+      sameSite: true,
+      secure: false,
+    });
+    return res.redirect('http://localhost:3000');
   }
+
 }
