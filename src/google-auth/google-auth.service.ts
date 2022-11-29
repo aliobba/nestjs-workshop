@@ -21,8 +21,6 @@ export class GoogleAuthService {
     
     res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
-      domain: '.github.io',
-      path: '/reactjs-workshop/',
       sameSite: false,
       secure: false,
     });
