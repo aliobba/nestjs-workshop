@@ -21,9 +21,9 @@ export class GoogleAuthService {
     
     res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
-      domain: 'aliobba.github.io/reactjs-workshop/',
-      path: '/',
-      sameSite: true,
+      domain: '.github.io',
+      path: '/reactjs-workshop/',
+      sameSite: false,
       secure: false,
     });
     return res.redirect('https://aliobba.github.io/reactjs-workshop/');
