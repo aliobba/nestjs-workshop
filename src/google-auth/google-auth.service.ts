@@ -23,6 +23,6 @@ export class GoogleAuthService {
       httpOnly: false,
       path: '/',
     });
-    return res.redirect('https://aliobba.github.io/reactjs-workshop/');
+    res.redirect('https://aliobba.github.io/reactjs-workshop/');
   }
 }
