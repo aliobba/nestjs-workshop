@@ -18,10 +18,10 @@ export class GoogleAuthService {
 
     return res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
-      domain: 'aliobba.github.io',
+      domain: '*.netlify.app',
       httpOnly: false,
       path: '/',
-    }).redirect('https://aliobba.github.io/reactjs-workshop/');
+    }).redirect(process.env.REACT_FRONT_URI);
     // res.redirect('https://aliobba.github.io/reactjs-workshop/');
   }
 }
