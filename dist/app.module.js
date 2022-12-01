@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
-const service_1 = require("./service");
+const app_service_1 = require("./app.service");
 const google_auth_module_1 = require("./google-auth/google-auth.module");
 const config_1 = require("@nestjs/config");
 const users_module_1 = require("./users/users.module");
@@ -23,7 +23,7 @@ AppModule = __decorate([
             users_module_1.UsersModule,
         ],
         controllers: [app_controller_1.AppController],
-        providers: [service_1.AppService],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 exports.AppModule = AppModule;
