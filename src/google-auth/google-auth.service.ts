@@ -18,7 +18,8 @@ export class GoogleAuthService {
 
     return res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
-      sameSite: 'Lax',
+      domain: 'netlify.app',
+      sameSite: 'lax',
       secure: false,
     }).redirect(process.env.REACT_FRONT_URI);
 
