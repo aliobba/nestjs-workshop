@@ -16,14 +16,14 @@ export class GoogleAuthService {
     };
     console.log(req.user);
 
-    return res.cookie('access_token', resultat.access_token, {
+    res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
       domain: 'netlify.app',
       sameSite: true,
       secure: false,
-    }).redirect(process.env.REACT_FRONT_URI);;
+    });
 
-    // return res.json(req.user)
+    return res.json(req.user);
 
     /* return res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
