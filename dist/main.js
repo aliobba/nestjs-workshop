@@ -12,7 +12,7 @@ const module_1 = require("./module");
 const bootstrap = async (module) => {
     const app = express();
     const nestApp = await core_1.NestFactory.create(module, new platform_express_1.ExpressAdapter(app));
-    nestApp.setGlobalPrefix('/.netlify/functions/app.main');
+    nestApp.setGlobalPrefix('/.netlify/functions/main');
     nestApp.enableCors({
         origin: ['http://localhost:3000', process.env.REACT_FRONT_URI],
     });
@@ -43,4 +43,4 @@ const proxyApi = async (module, event, context) => {
 };
 const handler = async (event, context) => proxyApi(module_1.AppModule, event, context);
 exports.handler = handler;
-//# sourceMappingURL=app.main.js.map
+//# sourceMappingURL=main.js.map

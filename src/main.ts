@@ -30,13 +30,13 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as express from 'express';
 import * as serverless from 'serverless-http';
 import * as helmet from 'helmet';
-import { AppModule } from './app.module';
+import { AppModule } from './module';
 
 const bootstrap = async (module: any) => {
   const app = express();
   const nestApp = await NestFactory.create(module, new ExpressAdapter(app));
 
-  nestApp.setGlobalPrefix('/.netlify/functions/app.main');
+  nestApp.setGlobalPrefix('/.netlify/functions/main');
   nestApp.enableCors({
     origin: ['http://localhost:3000', process.env.REACT_FRONT_URI],
   });
