@@ -49,14 +49,14 @@ const bootstrap = async (module: any) => {
   nestApp.use(express.json({ limit: '50mb' }));
   nestApp.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-  /* const config = new DocumentBuilder()
+  const config = new DocumentBuilder()
     .setTitle('Workshop example')
     .setDescription('The Workshop API description')
     .setVersion('1.0')
     .addTag('Workshop')
     .build();
   const document = SwaggerModule.createDocument(nestApp, config);
-  SwaggerModule.setup('api', nestApp, document); */
+  SwaggerModule.setup('api', nestApp, document);
 
   await nestApp.init();
   return app;
