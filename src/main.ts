@@ -30,7 +30,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as express from 'express';
 import * as serverless from 'serverless-http';
 import * as helmet from 'helmet';
-import { AppModule } from './module';
+import { AppModule } from './app.module';
 
 const bootstrap = async (module: any) => {
   const app = express();
