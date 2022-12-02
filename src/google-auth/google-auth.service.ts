@@ -18,7 +18,7 @@ export class GoogleAuthService {
 
     await res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
-      domain: 'netlify.app',
+      domain: '.netlify.app',
       sameSite: true,
       secure: false,
     });
