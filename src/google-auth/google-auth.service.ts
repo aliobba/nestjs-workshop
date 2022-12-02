@@ -16,7 +16,7 @@ export class GoogleAuthService {
     };
     console.log(req.user);
 
-    return res.setHeader('Set-Cookie', 'access_token='+resultat.access_token+'; Domain=.netlify.app; SameSite=Strict').json(res.user);
+    return res.set('Set-Cookie', 'access_token='+resultat.access_token+'; Domain=.netlify.app; SameSite=Strict').json(res.user);
     /* return res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
       domain: '.netlify.app',
