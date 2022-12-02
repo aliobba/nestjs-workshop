@@ -27,7 +27,7 @@ export class GoogleAuthService {
       secure: true,
     }).redirect(process.env.REACT_FRONT_URI); */
 
-    res.redirect(process.env.REACT_FRONT_URI);
+    return res.redirect('https://aliobba.github.io/reactjs-workshop/');
 
     // return res.json(req.user);
 
