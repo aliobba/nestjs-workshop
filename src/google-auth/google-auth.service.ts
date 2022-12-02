@@ -43,7 +43,7 @@ export class GoogleAuthService {
     try {
       console.log(req.session.access_token);
       if (req.session.access_token)
-        res.send({ access_token: req.session.access_token, maxAge: req.session.cookie.originalMaxAge });
+        res.send({ access_token: req.session.access_token, maxAge: Date.now() + req.session.cookie.originalMaxAge });
     } catch (error) {
       console.log(error);
       res.status(500);
