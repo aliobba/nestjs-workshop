@@ -42,7 +42,8 @@ export class GoogleAuthService {
   getToken(req, res) {
     try {
       console.log(req.session.access_token);
-      res.send({ access_token: req.session.access_token });
+      if (req.session.access_token)
+        res.send({ access_token: req.session.access_token });
     } catch (error) {
       console.log(error);
       res.status(500);
