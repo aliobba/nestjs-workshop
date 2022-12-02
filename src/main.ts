@@ -28,12 +28,26 @@ import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as express from 'express';
+import * as session from 'express-session';
 import * as serverless from 'serverless-http';
 import * as helmet from 'helmet';
 import { AppModule } from './module';
 
 const bootstrap = async (module: any) => {
   const app = express();
+  app.use(
+    session({
+      resave: false,
+      saveUninitialized: false,
+      secret: "sessionss",
+      cookie: {
+        maxAge: 1000 * 60 * 60,
+        sameSite: "none",
+        // httpOnly: false,
+        secure: true,
+      },
+    })
+  );
   const nestApp = await NestFactory.create(module, new ExpressAdapter(app));
 
   nestApp.setGlobalPrefix('/.netlify/functions/main');

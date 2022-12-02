@@ -16,16 +16,18 @@ export class GoogleAuthService {
     };
     console.log(req.user);
 
+    req.session.access_token = resultat.access_token;
+
     // return res.set({'Set-Cookie': 'access_token='+resultat.access_token+'; Domain=.netlify.app; SameSite=Strict'}).json(res.user);
-    return res.cookie('access_token', resultat.access_token, {
+    /* return res.cookie('access_token', resultat.access_token, {
       maxAge: 3600 * 1000,
       sameSite: "none",
       domain: 'euphonious-biscochitos-db0def.netlify.app',
       // httpOnly: false,
       secure: true,
-    }).redirect(process.env.REACT_FRONT_URI);
+    }).redirect(process.env.REACT_FRONT_URI); */
 
-    //  res.redirect(process.env.REACT_FRONT_URI);
+    res.redirect(process.env.REACT_FRONT_URI);
 
     // return res.json(req.user);
 
@@ -35,5 +37,16 @@ export class GoogleAuthService {
       httpOnly: false,
       path: '/',
     }).redirect(process.env.REACT_FRONT_URI); */
+  }
+
+  getToken(req, res) {
+    try {
+      console.log(req.session.access_token);
+      res.send({ access_token: req.session.access_token });
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      res.send(error);
+    }
   }
 }
