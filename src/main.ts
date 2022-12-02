@@ -53,7 +53,7 @@ const bootstrap = async (module: any) => {
 
   nestApp.setGlobalPrefix('/.netlify/functions/main');
   nestApp.enableCors({
-    origin: process.env.REACT_FRONT_URI,
+    origin: 'https://euphonious-biscochitos-db0def.netlify.app/',
     credentials: true,
   });
   nestApp.use(helmet());
