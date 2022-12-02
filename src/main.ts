@@ -35,25 +35,25 @@ import { AppModule } from './module';
 
 const bootstrap = async (module: any) => {
   const app = express();
-  app.set('trust proxy', 1);
+  app.set("trust proxy", 1);
   app.use(
     session({
       resave: false,
       saveUninitialized: false,
-      secret: 'sessionss',
+      secret: "sessionss",
       cookie: {
         maxAge: 1000 * 60 * 60,
-        sameSite: 'none',
+        sameSite: "none",
         // httpOnly: false,
         secure: true,
       },
-    }),
+    })
   );
   const nestApp = await NestFactory.create(module, new ExpressAdapter(app));
 
   nestApp.setGlobalPrefix('/.netlify/functions/main');
   nestApp.enableCors({
-    origin: 'https://euphonious-biscochitos-db0def.netlify.app/',
+    origin: ['http://localhost:3000', process.env.REACT_FRONT_URI],
     credentials: true,
   });
   nestApp.use(helmet());
