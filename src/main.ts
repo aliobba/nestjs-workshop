@@ -39,6 +39,7 @@ const bootstrap = async (module: any) => {
   nestApp.setGlobalPrefix('/.netlify/functions/main');
   nestApp.enableCors({
     origin: ['http://localhost:3000', process.env.REACT_FRONT_URI],
+    credentials: true,
   });
   nestApp.use(helmet());
   nestApp.useGlobalPipes(
