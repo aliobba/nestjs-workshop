@@ -15,9 +15,4 @@ export class GoogleAuthController {
   async googleAuthRedirect(@Req() req, @Res() res) {
     this.googleAuthService.googleLogin(req, res);
   }
-
-  @Get('tokenSession')
-  async getToken(@Req() req, @Res() res) {
-    this.googleAuthService.getToken(req, res);
-  }
 }
