@@ -35,6 +35,7 @@ import { AppModule } from './module';
 
 const bootstrap = async (module: any) => {
   const app = express();
+  app.set("trust proxy", 1);
   app.use(
     session({
       resave: false,
